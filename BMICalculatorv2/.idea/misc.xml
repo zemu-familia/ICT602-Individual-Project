@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.5703125" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.5703125" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.5703125" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.5703125" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.5703125" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.5703125" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/activity_edit.xml" value="0.33" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/activity_main.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/activity_save_results.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/activity_save_results2.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/cell_shape.xml" value="0.2674772036474164" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/cell_shape2.xml" value="0.2624113475177305" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/fragment_about.xml" value="0.22" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/fragment_calculator.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/fragment_dashboard.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/fragment_history.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/fragment_home.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/fragment_notifications.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/linear_layout_table.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/listview_history_layout.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/table_row_header_layout.xml" value="0.33177083333333335" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/layout/table_row_layout.xml" value="0.25" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
+        <entry key="..\:/Users/haziq/AndroidStudioProjects/BMICalculatorv2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.346875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BMI Tracker</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="link"><a href="https://github.com/zemu-familia/ICT602-Individual-Project">GitHub</a></string>
+</resources>
