@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.bmicalculatorv2.BMIResult;
 import com.example.bmicalculatorv2.DataHelper;
 import com.example.bmicalculatorv2.databinding.FragmentCalculatorBinding;
 
@@ -34,6 +35,7 @@ public class CalculatorFragment extends Fragment {
     EditText weightText, heightText;
     TextView results;
     DataHelper dbHelper;
+    BMIResult result;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -76,68 +78,28 @@ public class CalculatorFragment extends Fragment {
         }else if(Double.parseDouble(weightText.getText().toString()) < 1 || Double.parseDouble(heightText.getText().toString()) < 1) { // If input is less than 1, notify user that values inserted is invalid
             Toast.makeText(getActivity(), "Invalid value(s) inserted", Toast.LENGTH_SHORT).show();
         }else{ // If all inputs are valid, proceed to calculation and hide keyboard automatically
-            calculateBMI(weightText, heightText);
+            result = new BMIResult(weightText.getText().toString(), heightText.getText().toString());
+            printBMI();
             weightText.onEditorAction(EditorInfo.IME_ACTION_DONE); // Hides the keyboard I think lmao
         }
     }
 
-    // Calculate BMI
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void calculateBMI(EditText weightText, EditText heightText){
-        // Get values in double, convert height from cm to m
-        double weight = Double.parseDouble(weightText.getText().toString());
-        double height = Double.parseDouble(heightText.getText().toString()) / 100;
-
-        // Calculate BMI (weight / square of height)
-        double BMI = weight / (height * height);
-        BMI = Math.round(BMI * 10.0) / 10.0; // Round to 1 decimal place
-
-        printBMI(weight, height * 100, BMI);
-    }
-
     // Print BMI and assessments
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void printBMI(double weight, double height, double BMI){
-        String bmiCategory, rangeBMI, healthRisk;
-        if(BMI < 18.5){
-            bmiCategory = "Underweight";
-            rangeBMI = "18.4 and below";
-            healthRisk = "Malnutrition risk";
-        }else if(BMI < 25){
-            bmiCategory = "Normal";
-            rangeBMI = "18.5 - 24.9";
-            healthRisk = "Low risk";
-        }else if(BMI < 30) {
-            bmiCategory = "Overweight";
-            rangeBMI = "25 - 29.9";
-            healthRisk = "Enhanced risk";
-        }else if(BMI < 35){
-            bmiCategory = "Moderately obese";
-            rangeBMI = "30 - 34.9";
-            healthRisk = "Medium risk";
-        }else if(BMI < 40){
-            bmiCategory = "Severely obese";
-            rangeBMI = "35 - 39.9";
-            healthRisk = "High risk";
-        }else{
-            bmiCategory = "Very severely obese";
-            rangeBMI = "40 and above";
-            healthRisk = "Very high risk";
-        }
-
+    private void printBMI(){
         // Print calculation results to page
-        results.setText(" BMI:\n" + BMI +
-                "\nBMI Range:\n" + rangeBMI +
-                "\n\nWeight Class:\n" + bmiCategory +
-                "\nRisk Assessment:\n" + healthRisk);
+        results.setText(" BMI:\n" + result.getBmi() +
+                "\nBMI Range:\n" + result.getRange() +
+                "\n\nWeight Class:\n" + result.getCategory() +
+                "\nRisk Assessment:\n" + result.getRisk());
 
-        saveResults(weight, height);
+        saveResults();
     }
 
 
     // Save to local database
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void saveResults(double weight, double height){
+    private void saveResults(){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         LocalDateTime dateTime = LocalDateTime.now();
@@ -147,7 +109,7 @@ public class CalculatorFragment extends Fragment {
         db.execSQL(
                 "insert into bmiresults(datetime, weight, height) " +
                         "values('" + formattedDate + "', '"
-                        + weight + "', '"
-                        + height +  "')");
+                        + result.getWeight() + "', '"
+                        + result.getHeight() +  "')");
     }
 }

@@ -12,6 +12,13 @@ public class BMIResult {
         this.datetime = datetime;
     }
 
+    public BMIResult(String weight, String height){
+        id = -1;
+        datetime = "--";
+        this.weight = weight;
+        this.height = height;
+    }
+
     public int getId() {
         return id;
     }
