@@ -3,7 +3,6 @@ package com.example.bmicalculatorv2;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class DataHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "bmi.db";

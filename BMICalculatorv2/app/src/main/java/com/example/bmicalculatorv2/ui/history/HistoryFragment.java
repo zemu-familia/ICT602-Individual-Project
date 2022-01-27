@@ -13,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,7 +32,6 @@ import java.util.ArrayList;
 public class HistoryFragment extends Fragment {
     public static HistoryFragment hf;
 
-    //private HistoryViewModel historyViewModel;
     private FragmentHistoryBinding binding;
     public static ArrayList<BMIResult> bmiResults;
 
@@ -44,7 +42,6 @@ public class HistoryFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.M)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        //historyViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
         binding = FragmentHistoryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         bmiResults = new ArrayList<>();
@@ -62,14 +59,11 @@ public class HistoryFragment extends Fragment {
 
         Cursor cursor = db.rawQuery("select * from bmiresults", null);
 
-/*        View tableRow; */
         lv = (ListView) binding.lv;
 
         if(cursor.moveToFirst()){ // If there are results, get values and insert into rows
             int id, count;
-            String datetime, weight, height, bmi, weightclass, risk;
-            String date, time;
-
+            String datetime, weight, height;
             String summary;
             count = 0;
             resultStrings = new String[cursor.getCount()];
@@ -96,7 +90,6 @@ public class HistoryFragment extends Fragment {
                 count++;
             }while(cursor.moveToNext());
 
-            //lv.setAdapter(new CustomAdapter(getContext(), bmiResults));
             lv.setAdapter(new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, resultStrings));
             lv.setSelected(true);
             lv.setDividerHeight(10);
@@ -144,13 +137,13 @@ public class HistoryFragment extends Fragment {
             });
         }
         ((ArrayAdapter)lv.getAdapter()).notifyDataSetInvalidated();
+        cursor.close();
     }
 
     public void deleteConfirm(int id){
         BMIResult itemToDelete;
         String message = "";
-        for (BMIResult result:bmiResults
-             ) {
+        for (BMIResult result:bmiResults) {
             if(result.getId() == id) {
                 itemToDelete = result;
 

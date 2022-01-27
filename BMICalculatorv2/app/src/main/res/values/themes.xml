@@ -13,4 +13,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="SplashScreen" parent="Theme.SplashScreen">
+        <!-- API documentation https://developer.android.com/guide/topics/ui/splash-screen -->
+        <item name="windowSplashScreenBackground">@color/orange_500</item>
+
+        <item name="windowSplashScreenAnimatedIcon">@drawable/icon</item>
+
+        <item name="postSplashScreenTheme">@style/Theme.BMICalculatorV2</item>
+    </style>
 </resources>

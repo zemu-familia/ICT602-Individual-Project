@@ -1,7 +1,5 @@
 package com.example.bmicalculatorv2;
 
-import static java.lang.Double.parseDouble;
-
 public class BMIResult {
     private int id;
     private String weight,  height, datetime;

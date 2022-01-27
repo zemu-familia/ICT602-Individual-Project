@@ -13,10 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.bmicalculatorv2.BMIResult;
@@ -95,7 +93,6 @@ public class CalculatorFragment extends Fragment {
 
         saveResults();
     }
-
 
     // Save to local database
     @RequiresApi(api = Build.VERSION_CODES.O)

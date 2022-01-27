@@ -5,4 +5,5 @@
     <string name="title_notifications">Notifications</string>
 
     <string name="link"><a href="https://github.com/zemu-familia/ICT602-Individual-Project">GitHub</a></string>
+    <string name="copyright_statement">&#169; 2022 Haziq Aiman. All rights reserved.</string>
 </resources>
