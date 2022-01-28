@@ -1,8 +1,5 @@
 package com.example.bmicalculatorv2.ui.editdelete;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,14 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.bmicalculatorv2.BMIResult;
 import com.example.bmicalculatorv2.DataHelper;
 import com.example.bmicalculatorv2.R;
-import com.example.bmicalculatorv2.ui.calculator.CalculatorFragment;
 import com.example.bmicalculatorv2.ui.history.HistoryFragment;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class EditActivity extends AppCompatActivity {
     EditText weightText, heightText;
@@ -58,12 +54,12 @@ public class EditActivity extends AppCompatActivity {
         }
 
 
-        getValues();
+        setTextViewText();
 
         resetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getValues();
+                setTextViewText();
             }
         });
         updateBtn.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +78,7 @@ public class EditActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void getValues(){
+    public void setTextViewText(){
         String weightString, heightString;
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM bmiresults WHERE id = " + idToEdit, null);
@@ -93,7 +89,10 @@ public class EditActivity extends AppCompatActivity {
 
             weightText.setText(weightString);
             heightText.setText(heightString);
+
+            cursor.close();
         }else{
+            cursor.close();
             finish();
         }
     }
@@ -121,9 +120,9 @@ public class EditActivity extends AppCompatActivity {
         values.put("height", height);
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        if(db.update("bmiresults", values, "id = " + idToEdit, null) > 0){
+        if(db.update("bmiresults", values, "id = " + idToEdit, null) > 0){ // If update in database is successful,
             int count = 0;
-            for (BMIResult result:HistoryFragment.bmiResults) {
+            for (BMIResult result:HistoryFragment.bmiResults) { // go through HistoryFragment's bmiResults and update there too
                 if(result.getId() == idToEdit){
                     HistoryFragment.bmiResults.get(count).setHeight(Double.toString((height)));
                     HistoryFragment.bmiResults.get(count).setWeight(Double.toString(weight));

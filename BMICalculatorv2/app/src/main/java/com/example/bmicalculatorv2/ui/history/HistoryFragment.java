@@ -116,7 +116,6 @@ public class HistoryFragment extends Fragment {
                                     deleteConfirm(itemToEdit.getId());
                                     break;
                             }
-                            refresh();
                         }
                     });
                     builder.create().show();
